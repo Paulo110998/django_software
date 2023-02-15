@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root{
+    --orange:#191cce;
+    --text-color-1:#444;
+    --text-color-2:#666;
+    --bg-color-1:#fff;
+    --bg-color-2:#eee;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+
+    --green:#16a085;
+    --black:#444;
+    --light-color:#777;
+    --box-shadow:.5rem .5rem 0 rgba(22, 160, 133, .2);
+    --text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .2);
+    --border:.2rem solid var(--orange);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-transform: capitalize;
+    transition: all .2s ease-out;
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+section:nth-child(even){
+    background: #f5f5f5;
+}
+
+.heading{
+    text-align: center;
+    padding-bottom: 2rem;
+    text-shadow: var(--text-shadow);
+    text-transform: uppercase;
+    color:var(--black);
+    font-size: 5rem;
+    letter-spacing: .4rem;
+}
+
+.heading span{
+    text-transform: uppercase;
+    color:var(--orange);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border:var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--orange);
+    color:var(--orange);
+    cursor: pointer;
+    font-size: 1.7rem;
+    background: #fff;
+}
+
+.btn span{
+    padding:.7rem 1rem;
+    border-radius: .5rem;
+    background: var(--orange);
+    color:#fff;
+    margin-left: .5rem;
+}
+
+.btn:hover{
+    background: var(--orange);
+    color:#fff;
+}
+
+.btn:hover span{
+    color: var(--orange);
+    background:#fff;
+    margin-left: 1rem;
+}
+
+.header{
+    padding:2rem 9%;
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.header .logo i{
+    color: var(--orange);
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    color: var(--light-color);
+    margin-left: 2rem;
+}
+
+.header .navbar a:hover{
+    color: var(--orange);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color:var(--orange);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.btn{
+    margin-top: 1rem; /* margem topo */
+    display: inline-block;
+    padding:.8rem 3rem; /* preenchimento */
+    font-size: 1.7rem; /* tamanho da fonte */
+    color:#fff; /* cor da letra */
+    background: var(--orange); /* cor do botao */
+    border-radius: .5rem; /* tamanho da bordas */
+    cursor: pointer; /* cursor do mouse */
+}
+
+.btn:hover{
+    letter-spacing: .2rem; /* ao passar o mouse no botao ele aumentara junto com as letras */
+}
+
+.header .icons div{
+    height:4.5rem; /* altura */
+    width:4.5rem; /* largura */
+    line-height:4.5rem; 
+    font-size: 2rem; /* tamanho da fonte */
+    border-radius: .5rem; /* borda */
+    margin-left: .5rem; /* margem esquerda */
+    background:var(--bg-color-2); /* cor de fundo */
+    color:var(--text-color-1); /* cor do texto */
+    cursor: pointer; /* cursor do mouse */
+    text-align: center; /* para centralizar o texto */
+}
+
+.header .icons div:hover{
+    color:#fff; /* cor do texto */
+    background: var(--orange); /* cor */
+}
+
+.header .login-form{
+    position:absolute; 
+    top:115%; right:7%;
+    background:var(--bg-color-1); /* cor de fundo */
+    border-radius: .5rem; /* borda */
+    box-shadow: var(--box-shadow);
+    width:35rem; /* largura */
+    padding: 2rem; /* preenchimento */
+    transform:scale(0);
+    transform-origin: top right;
+}
+
+.header .login-form.active{
+    transform:scale(1);
+}
+
+.header .login-form .inputBox{
+    margin-bottom: 1rem; /* margem baixo */
+}
+
+.header .login-form .inputBox span{
+    font-size: 1.7rem; /* tamanho da fonte */
+    color:var(--text-color-2); /* cor do texto */
+}
+
+.header .login-form .inputBox input{
+    font-size: 1.5rem; /* tamanho da fonte */
+    color:var(--text-color-1); /* cor do texto */
+    border-radius: .5rem; /* borda */
+    padding:1rem;/* preenchimento */
+    background:var(--bg-color-2); /* cor de fundo */
+    width: 100%; /* largura */
+    text-transform: none;
+    margin:.5rem 0; /* margem */
+}
+
+.header .login-form .remember{
+    display: flex; /* flex */
+    align-items: center; /* centralizar os itens  */
+    gap:.5rem;
+    padding:.5rem 0; /* preenchimento */
+}
+
+.header .login-form .remember a{
+    font-size: 1.5rem; /* tamanho da fonte */
+    cursor: pointer; /* cursor do mouse */
+}
+
+.header .login-form .btn{
+    width:100%; /* largura */
+}
+
+/* media queries  */
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding: 2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: initial;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:115%; right: 2rem;
+        border-radius: .5rem;
+        box-shadow: var(--box-shadow);
+        width: 30rem;
+        border: var(--border);
+        background: #fff;
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: top right;
+        transition: none;
+    }
+
+    .header .navbar.active{
+        transform: scale(1);
+        opacity: 1;
+        transition: .2s ease-out;
+    }
+
+    .header .navbar a{
+        font-size: 2rem;
+        display: block;
+        margin:2.5rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+}

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}   
+    <title>Vox Communications</title>
+    {% endblock %}
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/pagina.css' %}">
+    <!-- Importação do datatables-->
+    <link rel="stylesheet" href="{% static 'css/datatables.min.css' %}">
+    
+
+
+   
+    
+</head>
+<body>
+    
+    {% block menu %}
+    <header class="header">
+    {% endblock %}
+
+    {% block logo %}
+        
+        <!--<h3><a href="{% url 'paginas' %}" class="logo"><img  width="150" src="{% static 'img/nodatelogo.png' %}" alt="logo"></a></h3>-->
+    {% endblock %} 
+
+    {% block links %}
+    
+        <!--<nav class="navbar">
+            <a href="{% url 'paginas'%}">home</a>
+            <a href="#">serviços</a>
+            <a href="{% url 'sobre' %}">sobre Nós</a>
+            <a href="#">Seu negocio</a>
+            <a href="#">Funcionalidades</a>
+            <a href="#">Planos</a>
+        </nav>-->
+    {% endblock %}
+        
+        {% block conteudo %}
+        <div>
+        <a href="{% url 'login' %}"><div class="icons">
+            <!-- <div class="fas fa-moon" id="theme-btn"></div> -->
+             <div class="fas fa-user" id="login-btn"></div> 
+             <div id="menu-btn" class="fas fa-bars"></div>
+        </a>
+        </div>
+     
+
+        
+       <!---- CADASTRO 
+        <form action="" class="login-form">
+            
+            {% csrf_token %}
+            <div class="inputBox">
+                <span>Nome do usuário</span>
+                <input type="text" placeholder="Digite seu nome">
+            </div>
+    
+            <div class="inputBox">
+                <span>Senha</span>
+                <input type="password" placeholder="Digite sua senha">
+            </div>
+
+            <div class="remember">
+                <a href="{% url 'bem-vindo' %}" class="novo">Entrar</a>
+            </div>
+    
+            <div class="remember">
+                <a href="{% url 'cadastro' %}" class="novo">Cadastre-se</a>
+            </div>
+       ----->
+
+
+            
+            <!--<a href="{% url 'bem-vindo' %}" ><input type="submit" class="btn btn-primary" value="login"></a>-->
+       
+        </form>
+        {% endblock %}
+      
+    </header> 
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+</body>
+
+
+<!--bloco destinado a scripts para cada pagina -->
+{% block scripts %}
+
+
+{% endblock %}
+
+
+
+ 
+</html>

@@ -1,0 +1,117 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="icon" type="favicon.ico" href="{% static 'img/iconenodate.png' %}">-->
+{% block title %}   
+    <title>Meus Dados</title>
+{% endblock %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<style>
+body{
+    background-image: linear-gradient(to right, powderblue, powderblue);
+    font-family: "Arial";
+}
+h3{text-align:justify;
+margin-left: 20px;}
+
+form{font-size:20px;
+margin-left:500px;
+}
+
+img{text-align:left;
+margin-left:500px;
+border: 3px solid black;
+border-radius: 3px;}
+
+nav{
+    
+    background-image: linear-gradient(to, right, white, powderblue);
+    border: 100px solid transparent;
+    border-radius: 100px 100px 100px 100px;
+    box-sizing: border-box;
+    text-align:left;
+    margin-left: 80px;
+}
+
+
+</style>
+</head>
+
+{% block menu %}
+
+{% endblock %}
+
+{% block links %}
+<br>
+<h3><a href="{% url 'bem-vindo' %}" class="btn btn-primary sm" >
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+  <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+</svg>
+</a></h3>
+{% endblock %}
+
+
+{% block conteudo %}
+
+<nav>
+    <div class="row">
+    <div class="shadow p-5 mb-5 bg-white rounded">
+   <!-- <h2>{{ dados }}<h2> --> 
+        {% csrf_token %}
+        <!--Se o user tiver foto de perfil carregada -->
+        {% if user.perfil.foto_perfil %}
+        <img src="{{ user.perfil.foto_perfil.url }}" alt="" class="rounded" height=170, width=120>
+        {% else %}
+        <img src="" alt="" height=150, width=110>
+        {% endif %}
+        <br>
+        <br>
+        <form action="" method="POST" enctype="multipart/form-data">
+   
+    
+        {% csrf_token %}
+        
+        {{ form|crispy }}
+
+        <hr class="mt-4">
+        <button type="submit" class="btn btn-primary sm">Atualizar</button>
+        </form>
+    </div>       
+</div>
+</nav>
+{% endblock conteudo %} 
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block scripts %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#id_cpf").mask("000.000.000-00");
+        
+        // Máscara do telefone abaixo:
+        var SPMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+            spOptions = {
+                onKeyPress: function(val, e, field, options) {
+                    field.mask(SPMaskBehavior.apply({}, arguments), options);
+                }
+            };
+
+        $('#id_telefone').mask(SPMaskBehavior, spOptions);
+
+        
+    });    
+</script>
+{% endblock %}

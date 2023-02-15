@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}   
+<title>Empresas | N.O Date</title>
+    {% endblock %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+</head>
+<a href="{% url 'bem-vindo' %}" class="logo"><img  width="120" src="{% static 'img/nodatelogo.png' %}" alt="logo"></a>
+
+{% load  static %} 
+
+
+{% block destaque %}
+
+{% endblock %}
+
+{% block links %}
+
+
+{% endblock %}
+
+{% block conteudo %}
+
+<hr>
+<h3>Lista de empresas registradas</h3>
+
+<hr>
+
+<div class="table-responsive">
+<table class='table table-striped'>
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Opções</th>
+
+    </tr>
+
+    {% for cadastros in object_list %}
+    <tr>
+        <td>{{ cadastros.nome }}</td>
+        <td>{{ cadastros.descriçao }}</td>
+        <td>
+            <a href="{% url 'editar-cadastros-empresas' cadastros.pk %}" class="btn btn-primary" title="Editar">Editar</a>
+            <a href="{% url 'excluir-cadastros-empresas' cadastros.pk %}" class="btn btn-danger sm" title="Excluir">Excluir</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td>Nenhum cadastro registrado.</td>
+    </tr>
+    {% endfor %}
+</table>
+    
+</div>
+<h3>Lista de Funcionários</h3>
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Cargo</th>
+        </tr>
+        
+        {% for cadastros in object_list %}
+        <tr>
+            <td>{{ cadastros.nome }}</td>
+            <td>{{ cadastros.email }}</td>
+            <td>{{ cadastros.telefone }}</td>
+            <td>{{ cadastros.cargo }}</td>
+            <td>
+            <a href="{% url 'editar-cadastros-funcionarios' cadastros.pk %}" class="btn btn-primary sm" title="Editar">Editar</a>
+            <a href="{% url 'excluir-cadastros-funcionarios' cadastros.pk %}" class="btn btn-danger sm" title="Excluir">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>Nenhum usuário encontrado..</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+<h3>Lista de Materiais</h3>
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome do Material</th>
+            <th>Série</th>
+            <th>Descrição</th>       
+        </tr>
+    
+        {% for cadastros in object_list %}
+        <tr>
+            <td>{{ cadastros.nome_material }}</td>
+            <td>{{ cadastros.tipo_material }}</td>
+            <td>{{ cadastros.descriçao }}</td>
+            <td>
+            <a href="{% url 'editar-cadastros-material' cadastros.pk %}" class="btn btn-primary sm" title="Editar">Editar</a>
+            <a href="{% url 'excluir-cadastros-material' cadastros.pk %}" class="btn btn-danger sm" title="Excluir" >Excluir</a>
+            </td>
+        </tr>    
+        {% empty %}
+        <tr>
+           <td>Nenhum material encontrado..</td>
+        </tr>
+        {% endfor %}
+        </tr>
+    </table>
+<a href="{% url 'bem-vindo' %}" class="btn btn-primary btn-sm">Voltar</a>
+</div>
+{% endblock %}

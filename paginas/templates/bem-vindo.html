@@ -1,0 +1,110 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    
+    
+{% block title %}
+<title>Bem-vindo | N.O Date</title>
+{% endblock %}
+</head>
+<body>
+
+{% block destaque %}
+
+{% endblock %}
+
+{% block links %}
+
+{% endblock %}
+
+
+{% block conteudo %}
+{% if request.user.is_authenticated %}
+<tr>
+    <nav class="navbar">
+    <div>
+        <a class="btn btn-primary sm" href="{% url 'listar-empresas' %}">Clientes</a>
+        <a class="btn btn-primary sm" href="{% url 'listar-material' %}">Estoque</a>
+        <a class="btn btn-primary sm" href="{% url 'listar-funcionarios' %}">Colaboradores</a>
+        <!--<a class="btn btn-primary sm" href="{% url 'listar-cards' %}">Cards</a>-->
+      </div>
+      
+    </nav>
+    
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">{{ request.user }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'atualizar-dados' %}">Meus Dados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+      </li>
+    </ul>
+  </div>
+
+
+{% endif %}
+</nav>    
+
+{% endblock %}
+
+{% block rodape %}
+
+
+</tr>
+{% endblock %}
+
+
+</body>
+</html>
+
+<!-- Todos comandos jquery começão com '$' -->
+<!-- Sempre terá um evento e uma ação com a função 'function'-->
+<!-- 
+EX: 
+
+<script>
+  
+    $("seletor").evento(function(){
+        $("seletor").acao();
+
+  });
+
+</script>
+-->
+<!-- ready: Quando o doc estiver pronto vai carregar 'function'  -->
+{% block scripts %}
+<script>
+  
+   // $(document).ready(function(){
+
+     //   alert("Bem-vindo!");
+    
+
+    //});
+  
+
+</script>
+{% endblock %}
+</body>
+</html>

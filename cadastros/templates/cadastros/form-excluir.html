@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}   
+    <title>N.O Date</title>
+    {% endblock %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<style>
+body{
+    background-image: linear-gradient(to right, powderblue, powderblue);
+    font-family: "Arial";
+}
+h3{text-align:justify;
+margin-left: 20px;}
+
+h4{text-align:center}
+
+p{text-align:center;
+margin-left:20px;}
+</style>
+
+{% load static %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block links %}
+<br>
+
+
+
+{% endblock %}
+
+{% block conteudo %}
+<br>
+<br>
+<h3 style="text-align: center">{{ excluir_empresa }}</h3>
+<h3 style="text-align: center">{{ excluir_funcionario }}</h3>
+<h3 style="text-align: center">{{ excluir_material }}</h3>
+<br>
+
+<form action="" method="POST">
+
+    <p>
+
+        Deseja excluir esse registro? <b>{{ object }}</b>?
+    
+    </p>
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <h4><button type="submit" class="btn btn-danger">Excluir</button></h4>
+
+</form>
+
+{% endblock conteudo %} 
